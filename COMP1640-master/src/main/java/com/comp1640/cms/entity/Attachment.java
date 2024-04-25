@@ -18,6 +18,7 @@ public class Attachment {
     private String fileName;
     private String fileType;
 
+
     @Lob
     @Column(name = "data", length = 10485760)
     private byte[] data;

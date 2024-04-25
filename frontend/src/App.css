@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('image/greenwich-2369465_1280.jpg'); /* Specify the path to your background image */
+    background-size:cover;
+    background-position:top;
+  }
+  
+  .auth-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background for forms */
+    padding: 20px;
+    border-radius: 8px;
+  }
+  .navbar-logo {
+    background-image: url('./image/1.png'); 
+    background-size: contain; 
+    background-repeat: no-repeat;
+    width: 100px; 
+    height: 50px; 
+   
+}
+.red {
+  color: red;
+}
+
+  
+  /* Add other styles as needed */
+  

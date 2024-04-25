@@ -41,7 +41,7 @@ function UpdateUser() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const confirmDelete = window.confirm('Are you sure you want to delete this user?');
+      const confirmDelete = window.confirm('Are you sure you want to update this user?');
       if (confirmDelete) {
         const token = localStorage.getItem('token');
         const res = await UserService.updateUser(userId, userData, token);
@@ -69,9 +69,14 @@ function UpdateUser() {
           <input type="email" name="email" value={userData.email} onChange={handleInputChange} />
         </div>
         <div className="form-group">
-          <label>Role:</label>
-          <input type="text" name="role" value={userData.role} onChange={handleInputChange} />
-        </div>
+                    <label>Role:</label>
+                    <select name="role" value={userData.role} onChange={handleInputChange} required>
+                        <option value="">Select Role</option>
+                        <option value="USER">USER</option> 
+                        <option value="MARKETING MANAGEMENT">MARKETING MANAGEMENT</option>
+                        <option value="MARKETING COORDINATOR">MARKETING COORDINATOR</option>                    
+                    </select>
+                </div>
         <div className="form-group">
           <label>City:</label>
           <input type="text" name="city" value={userData.city} onChange={handleInputChange} />

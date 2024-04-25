@@ -9,6 +9,7 @@ function RegistrationPage() {
         name: '',
         email: '',
         password: '',
+        repeatPassword: '', // New state variable for repeat password
         role: '',
         city: ''
     });
@@ -20,17 +21,20 @@ function RegistrationPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            // Call the register method from UserService
+        if (formData.password !== formData.repeatPassword) {
+            alert('Passwords do not match');
+            return;
+        }
 
+        try {
             const token = localStorage.getItem('token');
             await UserService.register(formData, token);
 
-            // Clear the form fields after successful registration
             setFormData({
                 name: '',
                 email: '',
                 password: '',
+                repeatPassword: '', // Clear repeat password field too
                 role: '',
                 city: ''
             });
@@ -60,8 +64,17 @@ function RegistrationPage() {
                     <input type="password" name="password" value={formData.password} onChange={handleInputChange} required />
                 </div>
                 <div className="form-group">
+                    <label>Repeat Password:</label>
+                    <input type="password" name="repeatPassword" value={formData.repeatPassword} onChange={handleInputChange} required />
+                </div>
+                <div className="form-group">
                     <label>Role:</label>
-                    <input type="text" name="role" value={formData.role} onChange={handleInputChange} placeholder="Enter your role" required />
+                    <select name="role" value={formData.role} onChange={handleInputChange} required>
+                        <option value="">Select Role</option>
+                        <option value="USER">USER</option> 
+                        <option value="MARKETING MANAGEMENT">MARKETING MANAGEMENT</option>
+                        <option value="MARKETING COORDINATOR">MARKETING COORDINATOR</option>                    
+                    </select>
                 </div>
                 <div className="form-group">
                     <label>City:</label>

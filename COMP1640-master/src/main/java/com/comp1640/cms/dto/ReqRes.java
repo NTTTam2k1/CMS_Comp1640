@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -25,8 +26,12 @@ public class ReqRes {
     private String role;
     private String email;
     private String password;
+    private Date startDate;
+    private Date endDate;
     private OurUsers ourUsers;
     private List<OurUsers> ourUsersList;
     private List<Attachment> attachments;
+    private List<Subject> subjects;
+
 
 }
